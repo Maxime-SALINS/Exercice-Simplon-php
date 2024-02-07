@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercice | php</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Exercice php</h1>
     <section>
-        <h2>Exercice sur les fonctions</h2>
         <?php require("boucle.php")?>
     </section>
     <!-- Exercice sur le formulaire de contact méthode GET & POST -->
