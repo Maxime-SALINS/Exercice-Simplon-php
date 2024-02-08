@@ -9,7 +9,10 @@
 <body>
     <h1>Exercice php</h1>
     <section class="card">
-        <?php require("boucle.php")?>
+        <?php require("boucle.php");?>
+        <?php
+        session_start();
+        echo $_SESSION['cars'];?>
     </section>
     <!-- Exercice sur le formulaire de contact méthode GET & POST -->
     <section>
@@ -27,6 +30,7 @@
         <h2>Ajout model de voiture</h2>
         <div>
             <form action="index.php" method="post">
+                <input type="text" name="id" id="id" placeholder="ID">
                 <input type="text" name="model" id="model" placeholder="Model">
                 <input type="text" name="stock" id="stock" placeholder="Stock">
                 <input type="text" name="vendu" id="vendu" placeholder="Vendu">
