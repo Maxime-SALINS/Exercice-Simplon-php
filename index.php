@@ -15,6 +15,11 @@
         <?php
             session_start();
             // var_dump($_SESSION['cars']);
+            function addId ($array){
+                $newid = count($array) + 1;
+                return $newid;
+            };
+
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $model = $_POST["model"];
                 $stock = $_POST["stock"];
@@ -22,7 +27,9 @@
                 $image = $_POST["image"];
                 // var_dump($id,$model,$stock,$vendu,$image);
 
-                $newCar = array("id" => 6, "model" => $model, "stock" => $stock, "vendu" => $vendu, "image" => $image);
+                $id = addId($_SESSION['cars']);
+
+                $newCar = array("id" => $id, "model" => $model, "stock" => $stock, "vendu" => $vendu, "image" => $image);
                 
                 array_push($_SESSION['cars'], $newCar);
                 // var_dump($_SESSION['cars']);
