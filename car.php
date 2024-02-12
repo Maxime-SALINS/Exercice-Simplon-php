@@ -1,8 +1,6 @@
 <?php 
-
-require_once ("data.php");
-
-echo '<a href="index.php">Retour à la page d\'accueil</a>';
+session_start();
+require_once './Partials/header.php';
 
 // $result = array_filter($cars, function($car){
 //     return $car['id'] == $_GET['id'];
@@ -12,7 +10,7 @@ echo '<a href="index.php">Retour à la page d\'accueil</a>';
 
 $id= $_GET['id'];
 
-foreach ($cars as $car){
+foreach ($_SESSION['cars'] as $car){
     if ($car['id'] == $id) {
         echo '
         <article>

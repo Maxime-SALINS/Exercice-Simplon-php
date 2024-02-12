@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercice | php</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <h1>Exercice php</h1>
+    <?php require_once './partials/header.php'?>
+    <h1>Model de voiture</h1>
     <section class="card">
-        <?php require("boucle.php");?>
         <?php
-        session_start();
-        echo $_SESSION['cars'];?>
+            session_start();
+            // var_dump($_SESSION['cars']);
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $model = $_POST["model"];
+                $stock = $_POST["stock"];
+                $vendu = $_POST["vendu"];
+                $image = $_POST["image"];
+                // var_dump($id,$model,$stock,$vendu,$image);
+
+                $newCar = array("id" => 6, "model" => $model, "stock" => $stock, "vendu" => $vendu, "image" => $image);
+                
+                array_push($_SESSION['cars'], $newCar);
+                // var_dump($_SESSION['cars']);
+            };
+
+            require_once "boucle.php";
+        ?>
     </section>
     <!-- Exercice sur le formulaire de contact méthode GET & POST -->
-    <section>
+    <!-- <section>
         <h2>Test methode POST/GET</h2>
         <div>
             <form action="userinfo.php" method="post">
@@ -25,19 +42,7 @@
                 <button type="submit">SUBMIT</button>
             </form>
         </div>
-    </section>
-    <section>
-        <h2>Ajout model de voiture</h2>
-        <div>
-            <form action="index.php" method="post">
-                <input type="text" name="id" id="id" placeholder="ID">
-                <input type="text" name="model" id="model" placeholder="Model">
-                <input type="text" name="stock" id="stock" placeholder="Stock">
-                <input type="text" name="vendu" id="vendu" placeholder="Vendu">
-                <input type="url" name="image" id="image" placeholder="lien image">
-                <button type="submit">SUBMIT</button>
-            </form>
-        </div>
-    </section>
+    </section> -->
 </body>
+
 </html>

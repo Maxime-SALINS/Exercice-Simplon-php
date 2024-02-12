@@ -1,11 +1,12 @@
 <?php 
 
 function cardTemplate($car){
-    return '
+    return "
     <article>
-        <h2>Model : ' . $car["model"] .' </h2>
-        <a href="car.php?id='.$car['id'].'">
-            <img width="80" src="'. $car['image'] . '" alt="logo marque">
-        </a>
-    </article>';
+        <h2>Model : {$car['model']} </h2>
+        <img width='80' src='{$car['image']}' alt='logo marque'><br>
+        <a href='car.php?id={$car['id']}'>Voir detail</a><br>
+        <a href='car.php?id={$car['id']}'>Supprimer</a>
+        <a href='car.php?id={$car['id']}'>Modifier</a>
+    </article>";
 };

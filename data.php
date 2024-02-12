@@ -1,5 +1,7 @@
-<?php 
-$cars = array(
+<?php
+session_start();
+
+$_SESSION['cars'] = array(
     array("id"=>1,"model" => "Volvo", "vendu" => 22, "stock" => 18, "image" => "https://upload.wikimedia.org/wikipedia/commons/3/3c/Volvo_Trucks_Logo.png"),
     array("id"=>2,"model" => "BMW", "vendu" => 33, "stock" => 5, "image" => "https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg"),
     array("id"=>3,"model" => "Saab", "vendu" => 3, "stock" => 88, "image" => "https://cdn.freebiesupply.com/logos/large/2x/saab-2-logo-png-transparent.png"),
