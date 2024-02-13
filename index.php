@@ -39,10 +39,7 @@
 
             foreach ($_SESSION['cars'] as $car) {
                 echo cardTemplate($car);
-            };
-
-            // removeID($_SESSION['cars']);
-            
+            };           
         ?>
     </section>
     <!-- Exercice sur le formulaire de contact méthode GET & POST -->
