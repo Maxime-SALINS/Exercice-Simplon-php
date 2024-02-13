@@ -1,0 +1,18 @@
+.card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2% 0%;
+}
+
+article{
+    border: 2px solid black;
+    text-align: center;
+    width: 12%;
+    margin: 2% 2.5%;
+    padding: 1%;
+}
+
+h1 {
+    text-align: center;
+}

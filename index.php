@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercice | php</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -41,10 +41,7 @@
                 echo cardTemplate($car);
             };
 
-            function removeID($array){
-                unset($array[array_search($array['id'], $array)]);
-            };
-
+            // removeID($_SESSION['cars']);
             
         ?>
     </section>
