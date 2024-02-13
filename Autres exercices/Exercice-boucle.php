@@ -34,11 +34,4 @@
     
     // for ($i=0; $i < count($cars) ; $i++) { 
     //     echo "Model : " . $cars[$i]["model"] . "<br>" . $cars[$i]["vendu"] . " vendu <br> " . $cars[$i]["stock"] . " en stock <br>" ."<br>";
-// }   
-
-// require_once 'data.php';
-require_once 'card_template.php';
-
-foreach($_SESSION['cars'] as $car){
-    echo cardTemplate($car);
-};
+// }  

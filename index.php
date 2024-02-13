@@ -35,7 +35,17 @@
                 // var_dump($_SESSION['cars']);
             };
 
-            require_once "boucle.php";
+            require_once 'card_template.php';
+
+            foreach ($_SESSION['cars'] as $car) {
+                echo cardTemplate($car);
+            };
+
+            function removeID($array){
+                unset($array[array_search($array['id'], $array)]);
+            };
+
+            
         ?>
     </section>
     <!-- Exercice sur le formulaire de contact méthode GET & POST -->
