@@ -1,3 +1,9 @@
+<form action="test.php" method="post">
+    <input type="number" name="vendu" placeholder="vendu">
+    <input type="number" name="stock" placeholder="stock">
+    <button type="submit">Envoyer</button>
+</form>
+
 <?php
 
 $cars = array(
@@ -8,18 +14,26 @@ $cars = array(
     array("id"=>5,"model" => "Mercedes", "vendu" => 45, "stock" => 2, "image" => "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/1200px-Mercedes-Logo.svg.png"),
 );
 
-$id = 1;
+$id = 3;
+
+// foreach ($cars as $car){
+//     if ($car['id'] == $id) {
+//         $index = array_search($car, $cars);
+//         array_splice($cars, $index , 1);
+//         var_dump($cars);
+//     }
+// };
+
+// $idsearch = end($cars);
+// $newid = $idsearch['id'];
+
+// var_dump($newid);
+$vendu= $_POST['vendu'];
+$stock= $_POST['stock'];
+$newInput = array("vendu" => $vendu, "stock"=> $stock);
 
 foreach ($cars as $car){
     if ($car['id'] == $id) {
-        $index = array_search($car, $cars);
-        array_splice($cars, $index , 1);
-        var_dump($cars);
+        var_dump(array_replace($car, $newInput));    
     }
-};
-
-$idsearch = end($cars);
-$newid = $idsearch['id'];
-
-
-var_dump($newid);
+}; ?>
