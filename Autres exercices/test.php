@@ -8,13 +8,18 @@ $cars = array(
     array("id"=>5,"model" => "Mercedes", "vendu" => 45, "stock" => 2, "image" => "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Mercedes-Logo.svg/1200px-Mercedes-Logo.svg.png"),
 );
 
-$id = 3 ;
+$id = 1;
 
 foreach ($cars as $car){
     if ($car['id'] == $id) {
-        // var_dump($car);
-        unset($car['id'], $cars);
-    } else {
-        var_dump($car);
+        $index = array_search($car, $cars);
+        array_splice($cars, $index , 1);
+        var_dump($cars);
     }
 };
+
+$idsearch = end($cars);
+$newid = $idsearch['id'];
+
+
+var_dump($newid);

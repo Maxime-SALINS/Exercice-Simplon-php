@@ -16,7 +16,8 @@
             session_start();
             // var_dump($_SESSION['cars']);
             function addId ($array){
-                $newid = count($array) + 1;
+                $idsearch = end($array);
+                $newid = $idsearch['id'] + 1;
                 return $newid;
             };
 

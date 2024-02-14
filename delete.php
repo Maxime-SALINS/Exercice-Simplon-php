@@ -1,17 +1,14 @@
 <?php
 session_start();
-$id = $_GET["id"];
 
-// var_dump($_SESSION['cars'][array_search($_SESSION['cars'][$id], $_SESSION['cars'])]);
+$id = $_GET["id"];
 
 foreach ($_SESSION['cars'] as $car){
     if ($car["id"] == $id) {
-        // var_dump($car);
-        unset($car['id'], $_SESSION['cars']);
-    } else {
-        var_dump($car);
+        $index = array_search($car, $_SESSION['cars']);
+        array_splice($_SESSION['cars'], $index , 1);
+        var_dump($_SESSION['cars']);
     }
 }
 
 
-// var_dump($_SESSION['cars']);
