@@ -21,18 +21,23 @@
             };
 
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                
                 $model = $_POST["model"];
                 $stock = $_POST["stock"];
                 $vendu = $_POST["vendu"];
                 $image = $_POST["image"];
-                // var_dump($id,$model,$stock,$vendu,$image);
 
-                $id = addId($_SESSION['cars']);
-
-                $newCar = array("id" => $id, "model" => $model, "stock" => $stock, "vendu" => $vendu, "image" => $image);
-                
-                array_push($_SESSION['cars'], $newCar);
-                // var_dump($_SESSION['cars']);
+                if(!empty($model) && !empty($stock) && !empty($vendu) && !empty($image)){
+                    if(!in_array($model, array_column($_SESSION['cars'], "model"))){
+                        $id = addId($_SESSION['cars']);
+                        $newCar = array("id" => $id, "model" => $model, "stock" => $stock, "vendu" => $vendu, "image" => $image);
+                        array_push($_SESSION['cars'], $newCar);
+                    } else {
+                        echo "Attention : le model existe déjà !";
+                    }
+                } else {
+                    echo "Vous n'avez pas remplie tout les champs <br>";
+                }
             };
 
             require_once 'card_template.php';

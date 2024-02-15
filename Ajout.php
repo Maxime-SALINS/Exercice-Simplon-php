@@ -4,8 +4,8 @@
 <div>
     <form action="index.php" method="post">
         <input type="text" name="model" id="model" placeholder="Model">
-        <input type="text" name="stock" id="stock" placeholder="Stock">
-        <input type="text" name="vendu" id="vendu" placeholder="Vendu">
+        <input type="number" name="stock" id="stock" placeholder="Stock">
+        <input type="number" name="vendu" id="vendu" placeholder="Vendu">
         <input type="url" name="image" id="image" placeholder="lien image">
         <button type="submit">SUBMIT</button>
     </form>
