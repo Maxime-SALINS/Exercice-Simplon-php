@@ -6,7 +6,7 @@
         <input type="text" name="model" id="model" placeholder="Model">
         <input type="number" name="stock" id="stock" placeholder="Stock">
         <input type="number" name="vendu" id="vendu" placeholder="Vendu">
-        <input type="url" name="image" id="image" placeholder="lien image">
+        <input type="file" name="image" id="image" placeholder="image">
         <button type="submit">SUBMIT</button>
     </form>
 </div>
