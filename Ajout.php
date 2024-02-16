@@ -3,6 +3,13 @@
 <h2>Ajout model de voiture</h2>
 <div class="dispo_form">
     <?php
+    session_start();
+
+    function addId ($array){
+        $newid = end($array)['id'] + 1;
+        return $newid;
+    };
+
     $marque ='';
     $sold = '';
     $warehouse = '';
@@ -21,8 +28,13 @@
         if(empty($model) && empty($stock) && empty($vendu) && empty($image)){
             $marque = $warehouse = $sold =  $img ='<span style="color:red">*Ce champ est obligatoire</span>';
             $message = "<span style='color:red'>Vous n'avez pas remplie tout les champs !</span>";
-        } else {
+        } else if(!in_array($model, array_column($_SESSION['cars'], "model"))){
+            $id = addId($_SESSION['cars']);
+            $newCar = array("id" => $id, "model" => $model, "stock" => $stock, "vendu" => $vendu, "image" => $image);
+            array_push($_SESSION['cars'], $newCar);
             header('Location:index.php');
+        } else {
+            echo "Attention : le model existe déjà !";
         }
     }
     ?>
