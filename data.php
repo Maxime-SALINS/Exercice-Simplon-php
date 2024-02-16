@@ -8,3 +8,5 @@ $_SESSION['cars'] = array(
     array("id"=>4,"model" => "Land Rover", "vendu" => 45, "stock" => 2, "image" => "Logo-Land-Rover.png"),
     array("id"=>5,"model" => "Mercedes", "vendu" => 45, "stock" => 2, "image" => "Mercedes-Logo.svg.png"),
 );
+
+header('Location:index.php');
