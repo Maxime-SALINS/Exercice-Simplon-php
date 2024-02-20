@@ -1,6 +1,6 @@
-<?php 
-session_start();
+<?php
 require_once './Partials/header.php';
+require_once 'data.php';
 
 // $result = array_filter($cars, function($car){
 //     return $car['id'] == $_GET['id'];
@@ -10,7 +10,7 @@ require_once './Partials/header.php';
 
 $id= $_GET['id'];
 
-foreach ($_SESSION['cars'] as $car){
+foreach ($table as $car){
     if ($car['id'] == $id) {
         echo '
         <article>

@@ -2,11 +2,10 @@
     <h1>Model de voiture</h1>
     <section class="card">
         <?php
-            session_start();
-
+            require_once 'data.php';
             require_once 'card_template.php';
 
-            foreach ($_SESSION['cars'] as $car) {
+            foreach ($table as $car) {
                 echo cardTemplate($car);
             };           
         ?>

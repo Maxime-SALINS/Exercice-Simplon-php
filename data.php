@@ -1,12 +1,23 @@
 <?php
-session_start();
 
-$_SESSION['cars'] = array(
-    array("id"=>1,"model" => "Volvo", "vendu" => 22, "stock" => 18, "image" => "Volvo_Trucks_Logo.png"),
-    array("id"=>2,"model" => "BMW", "vendu" => 33, "stock" => 5, "image" => "stickers-logo-bmw-couleurs.png"),
-    array("id"=>3,"model" => "Saab", "vendu" => 3, "stock" => 88, "image" => "saab-2-logo-png-transparent.png"),
-    array("id"=>4,"model" => "Land Rover", "vendu" => 45, "stock" => 2, "image" => "Logo-Land-Rover.png"),
-    array("id"=>5,"model" => "Mercedes", "vendu" => 45, "stock" => 2, "image" => "Mercedes-Logo.svg.png"),
-);
+$servername = 'localhost';
+$username = 'root';
 
-header('Location:index.php');
+//On essaie de se connecter
+try{
+    $conn = new PDO("mysql:host=$servername;dbname=test", $username);
+    //On définit le mode d'erreur de PDO sur Exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo 'Connexion réussie';
+}
+
+/*On capture les exceptions si une exception est lancée et on affiche
+ *les informations relatives à celle-ci*/
+catch(PDOException $e){
+  echo "Erreur : " . $e->getMessage();
+}
+
+$reponse = $conn->query('SELECT * FROM cars');
+$table = $reponse->fetchAll(PDO::FETCH_ASSOC);
+// var_dump($table);
+// header('Location:index.php');
