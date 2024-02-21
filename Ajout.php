@@ -27,18 +27,21 @@
 
                 //On regroupe les nouvelles données dans un tableau
                 $newdonnees = [
-                    'model' => $model,
-                    'stock' => $stock,
-                    'vendu' => $vendu,
-                    'image' => $image
+                    $model,
+                    $stock,
+                    $vendu,
+                    $image
                 ];
 
                 //On utilise les requêtes préparées et des marqueurs nommés
                 $reqprepare = $conn->prepare(
-                    "INSERT INTO cars(`model`,`stock`,`vendu`,`image`) VALUES (:model, :stock, :vendu, :image)"
+                    "INSERT INTO cars(`model`,`stock`,`vendu`,`image`) VALUES (?,?,?,?)"
                 );
 
+                //On execute la requête
                 $reqprepare->execute($newdonnees);
+
+                //On se redirige vers la page index
                 header('Location:index.php');
 
                 // Autre méthode :
