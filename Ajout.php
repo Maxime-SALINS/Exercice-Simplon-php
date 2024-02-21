@@ -13,12 +13,11 @@
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            // var_dump($_POST);
-
+            //On récupère les infos du formulaire
             $model = $_POST["model"];
             $stock = intval($_POST["stock"]);
             $vendu = intval($_POST["vendu"]);
-            $image = $_POST["image"];
+            $image = "asset/images/". $_POST["image"];
 
             if (empty($model) && empty($stock) && empty($vendu) && empty($image)) {
                 $marque = $warehouse = $sold =  $img = '<span style="color:red">*Ce champ est obligatoire</span>';
@@ -42,7 +41,7 @@
                 $reqprepare->execute($newdonnees);
 
                 //On se redirige vers la page index
-                header('Location:index.php');
+                // header('Location:index.php');
 
                 // Autre méthode :
                     // $sql = "INSERT INTO `cars`(`model`,`stock`,`vendu`,`image`) VALUES('$model', '$stock', '$vendu', '$image') ";
