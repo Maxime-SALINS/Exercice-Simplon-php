@@ -4,10 +4,36 @@
     box-sizing: border-box;
 }
 
+.dispo_sectionacide{
+    display: flex;
+}
+
+.style_aside{
+    width: 15%;
+    margin: 1% 1% 0% 0%;
+}
+
+.style_aside > h2 {
+    text-transform: uppercase;
+    margin: 5% 0%;
+}
+
+.style_form_aside{
+    text-align: center;
+}
+
+.style_filter{
+    margin: 8% 0%;
+}
+
+.style_section > h2 {
+    text-transform: uppercase;
+}
+
 .card{
     display: flex;
     flex-wrap: wrap;
-    margin: 2% 0%;
+    justify-content: space-around;
 }
 
 article{
@@ -20,6 +46,7 @@ article{
 
 h1 {
     text-align: center;
+    text-transform: uppercase;
     margin: 1.5% 0%;
 }
 
@@ -40,7 +67,7 @@ h2 {
 
 li {
     padding: 1%;
-    width: 33.33%;
+    width: 50%;
     text-align: center;
 }
 
