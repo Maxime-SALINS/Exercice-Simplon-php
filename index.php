@@ -3,7 +3,7 @@
     <aside class="style_aside">
         <h2>Filtre</h2>
         <div class="style_form_aside">
-            <form action="" method="post">
+            <form action="filter.php" method="post">
                 <div class="style_filter">
                     <input type="checkbox" name="filter_1" id="filter_1">
                     <label for="vendu">Les plus vendus</label>
