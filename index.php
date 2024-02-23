@@ -1,17 +1,30 @@
 <?php require_once './partials/header.php' ?>
+<?php
+
+require_once 'data.php';
+
+if (isset($_POST['filter_1'])) {
+    $valueSold = $_POST['filter_1'];
+    if ($valueSold == 'on') {
+        $reponse = $conn->query('SELECT * FROM cars ORDER BY vendu DESC LIMIT 5');
+        $table = $reponse->fetchAll(PDO::FETCH_ASSOC);
+        // var_dump($table);
+    }
+}
+?>
 <div class="dispo_sectionacide">
     <aside class="style_aside">
         <h2>Filtre</h2>
         <div class="style_form_aside">
-            <form action="filter.php" method="post">
+            <form action="" method="post">
                 <div class="style_filter">
                     <input type="checkbox" name="filter_1" id="filter_1">
                     <label for="vendu">Les plus vendus</label>
                 </div>
-                <div class="style_filter">
+                <!-- <div class="style_filter">
                     <input type="checkbox" name="filter_2" id="filter_2">
                     <label for="stock">Le plus de stock</label>
-                </div>
+                </div> -->
                 <button type="submit">Filtrer</button>
             </form>
         </div>
@@ -20,8 +33,9 @@
         <h2>Model de voiture</h2>
         <div class="card">
             <?php
-            require_once 'data.php';
             require_once 'card_template.php';
+
+            // var_dump($table);
     
             foreach ($table as $car) {
                 echo cardTemplate($car);

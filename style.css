@@ -26,6 +26,10 @@
     margin: 8% 0%;
 }
 
+.style_section{
+    width: 85%;
+}
+
 .style_section > h2 {
     text-transform: uppercase;
 }
