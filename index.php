@@ -3,22 +3,43 @@
 
 require_once 'data.php';
 
-if (isset($_POST['filter_1'])) {
-    $value = $_POST['filter_1'];
-    if ($value == 'on') {
-        $reponse = $conn->query('SELECT * FROM cars ORDER BY vendu DESC LIMIT 5');
-        $table = $reponse->fetchAll(PDO::FETCH_ASSOC);
-        // var_dump($table);
+function reqFilter($arrayPost, $bdd, $column,$array){
+    $value = $arrayPost;
+    if ($value == $column){
+        $reponse = $bdd->query("SELECT * FROM cars ORDER BY $column DESC LIMIT 5");
+        // var_dump($reponse);
+        $array = $reponse->fetchAll(PDO::FETCH_ASSOC);
+        // var_dump($array);
+        return $array;
     }
 }
 
-if (isset($_POST['filter_2'])) {
-    $value = $_POST['filter_2'];
-    if ($value == 'on') {
-        $reponse = $conn->query('SELECT * FROM cars ORDER BY stock DESC LIMIT 5');
-        $table = $reponse->fetchAll(PDO::FETCH_ASSOC);
-    }
+if (isset($_POST['filter_1'])){
+    $vendu = $_POST['filter_1'];
+    $table= reqFilter($_POST['filter_1'],$conn,$vendu,$table);
 }
+
+if (isset($_POST['filter_2'])){
+    $stock = $_POST['filter_2'];
+    $table= reqFilter($_POST['filter_2'],$conn,$stock,$table);
+}
+
+// if (isset($_POST['filter_1'])) {
+//     $value = $_POST['filter_1'];
+//     if ($value == 'on') {
+//         $reponse = $conn->query('SELECT * FROM cars ORDER BY vendu DESC LIMIT 5');
+//         $table = $reponse->fetchAll(PDO::FETCH_ASSOC);
+//         // var_dump($table);
+//     }
+// }
+
+// if (isset($_POST['filter_2'])) {
+//     $value = $_POST['filter_2'];
+//     if ($value == 'on') {
+//         $reponse = $conn->query('SELECT * FROM cars ORDER BY stock DESC LIMIT 5');
+//         $table = $reponse->fetchAll(PDO::FETCH_ASSOC);
+//     }
+// }
 
 if (isset($_POST['filter_3'])) {
     $value = $_POST['filter_3'];
@@ -43,11 +64,11 @@ if (isset($_POST['filter_4'])) {
         <div class="style_form_aside">
             <form action="" method="post">
                 <div class="style_filter">
-                    <input type="checkbox" name="filter_1" id="filter_1">
+                    <input type="checkbox" name="filter_1" id="filter_1" value="vendu">
                     <label for="vendu">Les plus vendus</label>
                 </div>
                 <div class="style_filter">
-                    <input type="checkbox" name="filter_2" id="filter_2">
+                    <input type="checkbox" name="filter_2" id="filter_2" value="stock">
                     <label for="stock">Le plus de stock</label>
                 </div>
                 <div class="style_filter">
