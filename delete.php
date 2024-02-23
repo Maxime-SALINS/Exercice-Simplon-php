@@ -17,7 +17,7 @@ header('Location:index.php');
 // echo "la suppression à marcher";
 
 //Ancien exercice
-// foreach ($table as $car) {
+// foreach ($_SESSION['cars'] as $car) {
 //     if ($car["id"] == $id) {
 //         $index = array_search($car, $_SESSION['cars']);
 //         array_splice($_SESSION['cars'], $index , 1);
