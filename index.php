@@ -14,47 +14,37 @@ function reqFilter($arrayPost, $bdd, $column,$array){
     }
 }
 
+function reqFilterNumber($arrayPost, $bdd, $column,$array,$param1,$param2){
+    $value = $arrayPost;
+    if ($value == $column) {
+        $reponse = $bdd->query("SELECT * FROM cars WHERE $column  BETWEEN $param1 AND $param2");
+        $array = $reponse->fetchAll(PDO::FETCH_ASSOC);
+        return $array;
+    }
+}
+
 if (isset($_POST['filter_1'])){
     $vendu = $_POST['filter_1'];
-    $table= reqFilter($_POST['filter_1'],$conn,$vendu,$table);
+    $table= reqFilter($vendu,$conn,$vendu,$table);
 }
 
 if (isset($_POST['filter_2'])){
     $stock = $_POST['filter_2'];
-    $table= reqFilter($_POST['filter_2'],$conn,$stock,$table);
+    $table= reqFilter($stock,$conn,$stock,$table);
 }
 
-// if (isset($_POST['filter_1'])) {
-//     $value = $_POST['filter_1'];
-//     if ($value == 'on') {
-//         $reponse = $conn->query('SELECT * FROM cars ORDER BY vendu DESC LIMIT 5');
-//         $table = $reponse->fetchAll(PDO::FETCH_ASSOC);
-//         // var_dump($table);
-//     }
-// }
-
-// if (isset($_POST['filter_2'])) {
-//     $value = $_POST['filter_2'];
-//     if ($value == 'on') {
-//         $reponse = $conn->query('SELECT * FROM cars ORDER BY stock DESC LIMIT 5');
-//         $table = $reponse->fetchAll(PDO::FETCH_ASSOC);
-//     }
-// }
-
 if (isset($_POST['filter_3'])) {
-    $value = $_POST['filter_3'];
-    if ($value == 'on') {
-        $reponse = $conn->query('SELECT * FROM cars WHERE vendu  BETWEEN 10 AND 20');
-        $table = $reponse->fetchAll(PDO::FETCH_ASSOC);
-    }
+    $vendu = $_POST['filter_3'];
+    $number1 = 10;
+    $number2 = 20;
+    $table = reqFilterNumber($vendu,$conn,$vendu,$table,$number1,$number2);
 }
 
 if (isset($_POST['filter_4'])) {
-    $value = $_POST['filter_4'];
-    if ($value == 'on') {
-        $reponse = $conn->query('SELECT * FROM cars WHERE stock  BETWEEN 25 AND 50');
-        $table = $reponse->fetchAll(PDO::FETCH_ASSOC);
-    }
+    $stock = $_POST['filter_4'];
+    $number1 = 25;
+    $number2 = 50;
+    $table = reqFilterNumber($stock,$conn,$stock,$table,$number1,$number2);
 }
 
 ?>
@@ -72,11 +62,11 @@ if (isset($_POST['filter_4'])) {
                     <label for="stock">Le plus de stock</label>
                 </div>
                 <div class="style_filter">
-                    <input type="checkbox" name="filter_3" id="filter_3">
+                    <input type="checkbox" name="filter_3" id="filter_3" value="vendu">
                     <label for="vendu">Vente entre 10 et 20</label>
                 </div>
                 <div class="style_filter">
-                    <input type="checkbox" name="filter_4" id="filter_4">
+                    <input type="checkbox" name="filter_4" id="filter_4" value="stock">
                     <label for="stock">Stock entre 25 et 50</label>
                 </div>
                 <button type="submit">Filtrer</button>
