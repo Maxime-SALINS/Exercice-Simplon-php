@@ -69,7 +69,9 @@ if (isset($_POST['filter_4'])) {
                     <input type="checkbox" name="filter_4" id="filter_4" value="stock">
                     <label for="stock">Stock entre 25 et 50</label>
                 </div>
-                <button type="submit">Filtrer</button>
+                <div class="dispo_btn">
+                    <button class="style_btn_filter" type="submit">Filtrer</button>
+                </div>
             </form>
         </div>
     </aside>   

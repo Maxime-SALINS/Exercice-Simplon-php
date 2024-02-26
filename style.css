@@ -40,8 +40,12 @@ li:hover{
 }
 
 /*--------- Style input search --------*/
+
 .search_bar{
     width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
 
 #search{
@@ -49,18 +53,29 @@ li:hover{
     display: flex;
     align-items: center;
     justify-content: end;
+    padding: 0.5%;
+    margin: 0%;
 }
 
 #btn_search{
     background-color: white;
     border: 1px solid white;
     border-radius: 100%;
+    margin: 0% 2.5%;
+}
+
+#btn_search:hover{
+    background-color: grey;
+    color: white;
 }
 
 /*--------- Style Section & Aside --------*/
+
 .dispo_sectionacide{
     display: flex;
 }
+
+/*--------- Filtre aside ----------*/
 
 .style_aside{
     width: 15%;
@@ -72,13 +87,29 @@ li:hover{
     margin: 5% 0%;
 }
 
-.style_form_aside{
-    text-align: center;
+.style_filter{
+    margin: 8% 0% 8% 4%;
 }
 
-.style_filter{
-    margin: 8% 0%;
+.style_btn_filter{
+    padding: 1%;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
 }
+
+.dispo_btn{
+    display: flex;
+    justify-content: center;
+}
+
+.style_btn_filter:hover{
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+/*--------- Affichage card voiture ----------*/
 
 .style_section{
     width: 85%;
@@ -112,6 +143,8 @@ h2 {
     text-align: center;
     margin: 1.5% 0%;
 }
+
+/*--------- formulaire d'ajout d'élément sur la bdd ----------*/
 
 .dispo_form{
     display: flex;
