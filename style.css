@@ -49,24 +49,18 @@ li:hover{
 }
 
 #search{
-    border-radius: 50px;
     display: flex;
     align-items: center;
     justify-content: end;
-    padding: 0.5%;
+    padding: 1%;
     margin: 0%;
 }
 
-#btn_search{
-    background-color: white;
-    border: 1px solid white;
-    border-radius: 100%;
-    margin: 0% 2.5%;
-}
-
-#btn_search:hover{
-    background-color: grey;
-    color: white;
+#valid{
+    background-color: coral;
+    border: 1px solid coral;
+    padding: 1%;
+    margin: 0% 1%;
 }
 
 /*--------- Style Section & Aside --------*/

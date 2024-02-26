@@ -1,3 +1,14 @@
+<?php 
+
+@ $keywords = $_GET["search"];
+@ $valider = $_GET["valider"];
+
+if(isset($valider)&& !empty(trim($keywords))){
+    include './connection.php';
+    $req = $conn->prepare("SELECT * FROM cars ");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -20,8 +31,9 @@
                 </li>
             </ul>
         </nav>
-        <div class="search_bar">
+        <form action="" method="get" class="search_bar">
             <input type="search" name="search" id="search">
-            <button type="submit" id="btn_search">&#9998</button>
-        </div>
+            <input type="submit" name="valider" value="Rechercher" id="valid">
+            
+        </form>
     </header>
