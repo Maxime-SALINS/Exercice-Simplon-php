@@ -87,21 +87,38 @@
 // $zack->viellir(100);
 // $zack->viellir(200);
 
-
 class User
 {
-    public $name;
-    public $age;
+    public $fname;
+    public $lname;
+    private $age;
     public $avatar;
+    public $gender;
 
-    function __construct($name, $age, $avatar)
+    function __construct($fn, $ln, $age, $av, $G)
     {
-        $this->name = $name;
-        $this->age = $age;
-        $this->avatar = $avatar;
+        $this->fname = $fn;
+        $this->lname = $ln;
+        $this->setAge($age);
+        $this->avatar = $av;
+        $this->gender = $G;
+    }
+
+    public function setAge($userAge)
+    {
+        if (is_int($userAge) && $userAge >= 18 && $userAge < 75) {
+            $this->age = $userAge;
+        } else {
+            throw new Exception("L'age n'est pas correct !");
+        }
+    }
+
+    public function getAge()
+    {
+        return $this->age;
     }
 }
 
-$michel = new User("Michel", 54, "😊");
+$user = new User("Michel","Seguin", 70, "😊", "M");
 
-var_dump($michel);
+var_dump($user);
