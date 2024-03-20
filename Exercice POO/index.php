@@ -23,60 +23,85 @@
 
 // var_dump($ballonfoot);
 
+// class User
+// {
+//     public $name;
+//     public $age;
+//     public $avatar;
+
+//     public function choixAvatar($param)
+//     {
+//         $table = ['😊', '😒', '😎', '🙄'];
+//         $this->avatar = $table[$param];
+//     }
+
+//     public function tchater($message)
+//     {
+//         echo "- $this->avatar | $this->name : $message <br>";
+//     }
+
+//     public function viellir($param)
+//     {
+//         if($this -> age > 120) {
+//             echo "Wow ! à $this->age il est temps de crever $this->name !";
+//         } else {
+//             $this->age += $param;
+//         }
+//     }
+// }
+
+// //Michel
+// $michel = new User();
+// $michel->age = 54;
+// $michel->name = "Michel";
+// $michel->choixAvatar(2);
+
+// //David
+// $david = new User();
+// $david->age = 26;
+// $david->name = "David";
+// $david->choixAvatar(1);
+
+// //Zack
+// $zack = new User();
+// $zack->age = 25;
+// $zack->name = "Zack";
+// $zack->choixAvatar(0);
+
+// //Samy
+// $samy = new User();
+// $samy->age = 30;
+// $samy->name = "Samy";
+// $samy->choixAvatar(3);
+
+// //tchat
+
+// $michel->tchater("Salut la compagnie !");
+// $david->tchater("Shalom sha va !");
+// $zack->tchater("Salam, ça va, David Bordus ?");
+// $samy->tchater("Qu'est ce que je fou la moi !");
+
+// echo $zack->age . " ans <br>";
+
+// $zack->viellir(10);
+// $zack->viellir(100);
+// $zack->viellir(200);
+
+
 class User
 {
     public $name;
     public $age;
     public $avatar;
 
-    public function choixAvatar($param)
+    function __construct($name, $age, $avatar)
     {
-        $table = ['😊', '😒', '😎', '🙄'];
-        $this -> avatar = $table[$param];
-    }
-
-    public function tchater($message)
-    {
-        echo "- $this -> avatar | $this -> name : $message \n";
-    }
-
-    public function viellir($param)
-    {
-        $this->age = $this->age + $param;
-        echo "Wow ! à $this->age il est temps de crever $this->name !";
+        $this->name = $name;
+        $this->age = $age;
+        $this->avatar = $avatar;
     }
 }
 
-//Michel
-$michel = new User();
-$michel->age = 54;
-$michel->name = "Michel";
-$michel->choixAvatar(2);
+$michel = new User("Michel", 54, "😊");
 
-//David
-$david = new User();
-$david->age = 26;
-$david->name = "David";
-$david->choixAvatar(1);
-
-//Zack
-$zack = new User();
-$zack->age = 25;
-$zack->name = "Zack";
-$zack->choixAvatar(0);
-//Samy
-$samy = new User();
-$samy->age = 30;
-$samy->name = "Samy";
-$samy->choixAvatar(3);
-
-//tchat
-
-$michel->tchater("Salut la compagnie !");
-$david->tchater("Shalom sha va !");
-$zack->tchater("Salam, ça va, David Bordus ?");
-$samy->tchater("Qu'est ce que je fou la moi !");
-
-echo $zack->age . " ans \n";
-
-$zack->viellir(10);
+var_dump($michel);
